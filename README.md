@@ -14,3 +14,4 @@ Each task must have a description and as an option it may have deadline and prio
 * Tasks can be sorted by priority or deadline
 * Avoid the necesity to have a modal to edit a task
 * Multiple tasks can be edited at the same time
+* Previous tasks can be "saved" in the local storage
