@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasky | Task list manager</title>
+    <script src="https://kit.fontawesome.com/c59c31b882.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Amaranth:400,700|Open+Sans:300,300i,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tasky</h1>
+        <form class="task-create">
+            <div class="task-create__body">
+                <input type="text" id="task-create__input" placeholder="Enter your today's new task...">
+                <button class="task-create__add main-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </form>
+    </header>
+
+    <section class="tasks-list">
+        <div class="tasks-list__no-results active">
+            <span>You don't have any tasks added yet. Create one!</span>
+        </div>
+
+        <div class="tasks-list__results">
+            <h2>Your List:</h2>
+            <div class="tasks-list__options">
+                <button class="edit" disabled>Edit</button>
+                <button class="delete" disabled>Delete</button>
+            </div>
+            <div class="tasks-list__tasks-header">
+                <span>Deadline</span>
+                <span>Priority</span>
+            </div>
+
+            <div class="tasks-list__tasks">
+                <ul></ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span>Made with love by Maria Paz.</span>
+        <i class="fab fa-rebel"></i>
+    </footer>
+
+    <div id="global-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <div class="modal__edit-task">
+                <h3>Edit Task</h3>
+                <form id="edit-task-form">
+                    <input class="edit-description" type="text" value="">
+                    <input class="edit-deadline" type="date" name="" value="" min="" max="">
+                    <select class="edit-priority" value="">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                    <div class="modal__buttons-section">
+                        <button class="edit-button-done modal__confirm-btn">Done</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal__delete-task">
+                <h3>Delete task</h3>
+                <p>Are you sure you want to delete this task?</p>
+                <div class="modal__buttons-section">
+                    <button class="delete-cancel">Cancel</button>
+                    <button class="delete-confirm modal__confirm-btn">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

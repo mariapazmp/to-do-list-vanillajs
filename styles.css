@@ -1,0 +1,296 @@
+/* --- Reset styles */
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+button {
+    border: none;
+    border-radius: 1.1rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* --- Global definitions */
+:root {
+    --main-background: #272727;
+    --secondary-background: #ebebeb;
+    --primary-text: #f0f0f0;
+    --secondary-text: #2a2a2a;
+    --element-background: #303030;
+
+    --active-element: #20E1D9;
+    --focus-element: #792ee1;
+    --disabled-element: #5b5b5b;
+    --border: #909090;
+}
+
+div.active {
+    display: block;
+}
+
+body, form, input, button {
+    color: var(--secondary-text);
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: var(--main-background);
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2 {
+    font-family: 'Amaranth', sans-serif;
+    margin: 0 0 20px;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.main-btn {
+    background: var(--active-element);
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.7);
+}
+.modal__content {
+    background: white;
+    border: 1px solid var(--disabled-element);
+    border-radius: 0.3rem;
+    margin: 15% auto;
+    padding: 20px;
+    width: 40%;
+}
+.modal__close {
+    color: var(--disabled-element);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.4rem;
+}
+.modal__close:hover,
+.modal__close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* --- Main styles */
+header {
+    background: var(--secondary-background);
+    padding: 2rem 0 3rem;
+    text-align: center;
+    z-index: 2;
+
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,1);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0,0,0,1);
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,1);
+}
+
+header h1 {
+    margin-bottom: -7px;
+}
+
+footer {
+    background: var(--element-background);
+    color: var(--primary-text);
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-style: italic;
+    font-weight: 300;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.task-create__add {
+    border-radius: 2rem;
+    padding: 0.4rem 0.55rem;
+}
+
+.task-create__body {
+    background: white;
+    border-radius: 1.3rem;
+    max-width: 20rem;
+    margin: 0 auto;
+    padding: 0.4rem 0.2rem 0.4rem 1rem;
+}
+
+.task-create input {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 300;
+    width: 88%;
+}
+
+.tasks-list {
+    background: var(--main-background);
+    color: var(--primary-text);
+    flex: 1 0 auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.tasks-list__no-results {
+    display: none;
+    font-weight: 300;
+    padding: 10% 0;
+}
+
+.tasks-list__results {
+    display: none;
+    max-width: 784px;
+    margin: 0 auto;
+}
+
+.tasks-list__options {
+    float: left;
+}
+
+.tasks-list__options button:disabled, .tasks-list__options button:disabled:hover {
+    background: var(--disabled-element);
+    color: var(--secondary-text);
+    cursor: default;
+}
+
+.tasks-list__options button {
+    margin-right: 0.5rem;
+    transition: all 0.3s;
+}
+
+.tasks-list__options button:hover {
+    background: var(--active-element);
+    color: white;
+}
+
+.tasks-list__options button:focus {
+    background: var(--focus-element);
+    color: white;
+}
+
+.tasks-list__options .done {
+    display: none;
+}
+
+.tasks-list__tasks ul {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.tasks-list__tasks-header {
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    text-align: right;
+}
+
+.tasks-list__tasks-header span:last-child {
+    margin-left: 2rem;
+    min-width: 5rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.task-item {
+    background: #303030;
+    border-radius: 0.3rem;
+    color: #919191;
+    display: flex;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+}
+
+.task-item__id {
+    display: none;
+}
+
+.task-item__title {
+    flex: 1;
+    text-align: left;
+    text-overflow: ellipsis;
+    margin-right: 1rem;
+}
+
+.task-item__checkbox {
+    cursor: pointer;
+    margin-right: 0.4rem;
+}
+
+.task-item__checkbox i {
+    font-size: 1.2rem;
+}
+
+.task-item__priority {
+    margin-left: 2rem;
+    min-width: 5rem;
+}
+
+.task-item__priority--high {
+    color: var(--focus-element);
+}
+
+.task-item__priority--medium {
+    color: white;
+}
+
+.modal__edit-task, .modal__delete-task {
+    display: none;
+}
+
+.modal__edit-task.active, .modal__delete-task.active {
+    display: block;
+}
+
+.modal__content input, .modal__content select {
+    box-sizing: border-box;
+    border-radius: 0.3rem;
+    border: 1px #CCC solid;
+    margin-bottom: 0.5rem;
+    padding: 0.3rem;
+    width: 100%;
+}
+
+.modal__content h3 {
+    margin-top: 0;
+}
+
+.modal__content button {
+    background: white;
+    border: 1px var(--border) solid;
+    margin-left: 0.5rem;
+}
+
+.modal__content button.modal__confirm-btn {
+    background: var(--focus-element);
+    color: white;
+    border: none;
+}
+
+.modal__buttons-section {
+    display: flex;
+    justify-content: flex-end;
+}
